@@ -1,16 +1,24 @@
-export const App = () => {
+import ContactForm from './ContactForm/ContactForm';
+import ContactsList from './ContactsList/ContactsList';
+import Filter from './Filter/Filter';
+
+import { selectError } from 'redux/selector';
+import { useSelector } from 'react-redux';
+import { Container, Title, TitleContacts } from './App.styled';
+import { errorServes } from './ErrorPage/error';
+
+function App() {
+  const error = useSelector(selectError);
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Container>
+      {error && errorServes()}
+      <Title>PhoneBook</Title>
+      <ContactForm />
+      <TitleContacts>Contacts</TitleContacts>
+      <Filter />
+      <ContactsList />
+    </Container>
   );
-};
+}
+
+export default App;
