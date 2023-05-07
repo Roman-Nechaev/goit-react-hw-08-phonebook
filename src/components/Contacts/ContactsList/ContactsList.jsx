@@ -10,8 +10,10 @@ import { NoContacts } from './NoContacts';
 import { ContactsListItem } from './ContactsListItem';
 
 import { Container, Info } from './ContactsList.styled';
+import { useTranslation } from 'react-i18next';
 
 const ContactsList = () => {
+  const { t } = useTranslation();
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
   const IsLoading = useSelector(selectIsLoading);
@@ -43,10 +45,10 @@ const ContactsList = () => {
       ) : (
         <>
           <Info>
-            Quantity yours contacts:
+            {t('Quantity yours contacts')}:
             {IsLoading ? (
               <span>
-                <PulseLoader color="#3f82b5" size={8} />
+                <PulseLoader color="#8f2c24" size={8} />
               </span>
             ) : (
               quantityContacts

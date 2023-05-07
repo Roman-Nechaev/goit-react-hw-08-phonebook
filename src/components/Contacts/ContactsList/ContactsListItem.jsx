@@ -11,7 +11,7 @@ import {
   IoTrashOut,
 } from './ContactsList.styled';
 
-export const ContactsListItem = ({ id, name, phone }) => {
+export const ContactsListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
   const IsLoading = useSelector(selectIsLoading);
@@ -22,7 +22,7 @@ export const ContactsListItem = ({ id, name, phone }) => {
       <Text>
         <PersonOutline size={22} />
         {name}: <CallOutline size={22} />
-        {phone}
+        {number}
       </Text>
       <Btn type="button" disabled={IsLoading} onClick={handleDelete}>
         <IoTrashOut size={20} />

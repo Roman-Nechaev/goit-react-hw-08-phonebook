@@ -2,20 +2,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
-import { addContact } from '../../redux/operationsApi';
+import { addContact } from '../../../redux/operationsApi';
 
 import { selectContacts } from 'redux/selector';
 
 import { Input, Forms, Button, IoPerson } from './ContactForm.styled';
+import { useTranslation } from 'react-i18next';
 
 const initialValues = {
   name: '',
-  phone: '',
+  number: '',
 };
 
 const ContactForm = () => {
   const contacts = useSelector(selectContacts);
-
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const nameCheck = name => {
@@ -38,7 +39,7 @@ const ContactForm = () => {
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       <Forms>
         <label>
-          Name
+          {t('Name')}
           <Input
             type="text"
             name="name"
@@ -48,10 +49,10 @@ const ContactForm = () => {
           />
         </label>
         <label>
-          Number
+          {t('Number')}
           <Input
             type="tel"
-            name="phone"
+            name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required

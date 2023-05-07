@@ -10,5 +10,6 @@ export const Text = styled.p`
   margin-bottom: 0;
 
   text-align: center;
-  color: gray;
+  text-decoration-line: underline;
+  color: #8f1515;
 `;
