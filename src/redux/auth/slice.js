@@ -35,6 +35,3 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-// joma4@larland.com
-// joma1@larland.com
-// joma2@larland.com
