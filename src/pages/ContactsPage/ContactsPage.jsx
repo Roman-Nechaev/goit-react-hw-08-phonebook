@@ -1,5 +1,5 @@
 import ContactForm from 'components/Contacts/ContactForm/ContactForm';
-import { Container, Title, TitleContacts } from './ContactsPage.styled';
+import { Container, TitleContacts } from './ContactsPage.styled';
 
 import Filter from 'components/Filter/Filter';
 import ContactsList from 'components/Contacts/ContactsList/ContactsList';
